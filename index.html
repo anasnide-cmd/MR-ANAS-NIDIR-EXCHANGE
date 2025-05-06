@@ -13,6 +13,7 @@
       --bg-secondary: #1A1A1A;
       --text-primary: #F5F5F5;
       --text-secondary: #A3A3A3;
+      --button-text: #0A0A0A;
     }
 
     [data-theme="light"] {
@@ -21,6 +22,7 @@
       --bg-secondary: #FFFFFF;
       --text-primary: #1A1A1A;
       --text-secondary: #4A5568;
+      --button-text: #FFFFFF;
     }
 
     body {
@@ -63,13 +65,14 @@
       transition: all 0.3s ease;
     }
 
-    .hover-glow:hover {
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.1);
+    .gold-button {
+      background-color: var(--gold);
+      color: var(--button-text);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -102,10 +105,12 @@
           <p class="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-2xl mx-auto mb-12">
             The Pinnacle of <span class="text-[var(--gold)]">Digital Wealth Management</span>
           </p>
-          <a href="#" class="inline-flex items-center px-12 py-5 bg-[var(--gold)] hover:bg-opacity-90 text-black font-semibold 
-            rounded-full transition-all transform hover:scale-105 hover-glow text-lg">
+          <a href="#cta-section" class="inline-flex items-center px-12 py-5 gold-button font-semibold 
+            rounded-full transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--gold)]/30
+            focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:ring-offset-2 
+            focus:ring-offset-[var(--bg-primary)] text-lg">
             Begin Your Journey
-            <heroicon-outline:arrow-right class="w-6 h-6 ml-3" />
+            <heroicon-outline:arrow-right class="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>
@@ -113,7 +118,6 @@
 
     <!-- Features -->
     <section class="relative py-24" style="background-color: var(--bg-secondary)">
-      <div class="section-divider"></div>
       <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 py-24">
         <div class="group relative p-8 backdrop-blur-sm luxury-border hover:border-[var(--gold)]/40 transition-all duration-500">
           <div class="text-[var(--gold)] text-5xl mb-6">Ⅰ</div>
@@ -133,7 +137,6 @@
           <p class="text-[var(--text-secondary)] leading-relaxed">Shariah-compliant investment opportunities with transparent auditing</p>
         </div>
       </div>
-      <div class="section-divider"></div>
     </section>
 
     <!-- Portfolio Showcase -->
@@ -144,7 +147,7 @@
             <div class="text-[var(--gold)] text-lg mb-4">Curated Excellence</div>
             <h2 class="text-4xl font-bold mb-6">The MANEX <br>Portfolio Advantage</h2>
             <p class="text-[var(--text-secondary)] mb-8 leading-relaxed">Experience sophisticated wealth management through our exclusive selection of premium assets</p>
-            <a href="#" class="inline-flex items-center text-[var(--gold)] hover:text-[var(--gold)]/80 transition-all">
+            <a href="#cta-section" class="inline-flex items-center text-[var(--gold)] hover:text-[var(--gold)]/80 transition-all">
               Explore Assets
               <heroicon-outline:arrow-right class="w-5 h-5 ml-2" />
             </a>
@@ -160,14 +163,14 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="relative py-32" style="background-color: var(--bg-secondary)">
+    <section id="cta-section" class="relative py-32" style="background-color: var(--bg-secondary)">
       <div class="max-w-4xl mx-auto text-center px-4">
         <div class="text-[var(--gold)] text-lg mb-4">Exclusive Membership</div>
         <h2 class="text-5xl font-bold mb-6">Elevate Your Financial Horizon</h2>
         <p class="text-xl text-[var(--text-secondary)] mb-12 max-w-2xl mx-auto">Join our curated community of sophisticated investors</p>
         <div class="flex justify-center gap-6">
-          <a href="#" class="px-12 py-5 bg-[var(--gold)] hover:bg-opacity-90 text-black font-semibold 
-            rounded-full transition-all transform hover:scale-105 hover-glow">
+          <a href="#" class="px-12 py-5 gold-button font-semibold 
+            rounded-full transition-all transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--gold)]/30">
             Apply for Membership
           </a>
         </div>
@@ -207,7 +210,7 @@
             </ul>
           </div>
         </div>
-        <div class="border-t" style="border-color: rgba(212, 175, 55, 0.1); margin-top: 3rem; padding-top: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.875rem;">
+        <div class="border-t mt-12 pt-8 text-center text-[var(--text-secondary)] text-sm" style="border-color: rgba(212, 175, 55, 0.1)">
           © 2024 MANEX. All rights reserved.<br>
           A subsidiary of Anas Nidir Holdings
         </div>
