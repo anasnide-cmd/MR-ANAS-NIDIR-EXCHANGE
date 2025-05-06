@@ -1,4 +1,3 @@
-# MR-ANAS-NIDIR-EXCHANGE
 # MR ANAS NIDIR EXCHANGE
 
 **Empowering the Next Financial Revolution**
