@@ -1,273 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MANEX | Premium Digital Exchange</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/@heroicons/v2.0.18/24/outline/index.js"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ring Chart Counter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --gold: #D4AF37;
-      --bg-primary: #0A0A0A;
-      --bg-secondary: #1A1A1A;
-      --text-primary: #F5F5F5;
-      --text-secondary: #A3A3A3;
-      --button-text: #0A0A0A;
-    }
-
-    [data-theme="light"] {
-      --gold: #B8860B;
-      --bg-primary: #F5F5F5;
-      --bg-secondary: #FFFFFF;
-      --text-primary: #1A1A1A;
-      --text-secondary: #4A5568;
-      --button-text: #FFFFFF;
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .gold-gradient {
-      background: linear-gradient(45deg, var(--gold), #C5A350, #B8860B);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .theme-switch {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
-      z-index: 1000;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      background: var(--bg-secondary);
-      border: 1px solid var(--gold);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .theme-switch:hover {
-      transform: rotate(180deg);
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-    }
-
-    .luxury-border {
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .gold-button {
-      background-color: var(--gold);
-      color: var(--button-text);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    html {
-      scroll-behavior: smooth;
+      --gold: #FFD700;
+      --bg-secondary: #0F172A;
+      --text-secondary: #E2E8F0;
     }
   </style>
 </head>
-<body>
+<body class="bg-[var(--bg-secondary)] text-white">
 
-  <!-- Theme Toggle -->
-  <div class="theme-switch" id="themeToggle">
-    <heroicon-outline:sun class="w-5 h-5 text-[var(--gold)] dark:hidden" />
-    <heroicon-outline:moon class="w-5 h-5 text-[var(--gold)] hidden dark:block" />
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
+
+    <!-- Card 1 -->
+    <div class="flex flex-col items-center">
+      <div class="relative w-32 h-32 mb-4">
+        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 128 128">
+          <circle cx="64" cy="64" r="54" stroke="#334155" stroke-width="10" fill="none" />
+          <circle cx="64" cy="64" r="54" stroke="var(--gold)" stroke-width="10" fill="none"
+                  stroke-dasharray="339.292"
+                  stroke-dashoffset="339.292"
+                  id="ring1" />
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[var(--gold)]" id="counter1">0</div>
+      </div>
+      <p class="text-[var(--text-secondary)] mt-2">Clients</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="flex flex-col items-center">
+      <div class="relative w-32 h-32 mb-4">
+        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 128 128">
+          <circle cx="64" cy="64" r="54" stroke="#334155" stroke-width="10" fill="none" />
+          <circle cx="64" cy="64" r="54" stroke="var(--gold)" stroke-width="10" fill="none"
+                  stroke-dasharray="339.292"
+                  stroke-dashoffset="339.292"
+                  id="ring2" />
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[var(--gold)]" id="counter2">0</div>
+      </div>
+      <p class="text-[var(--text-secondary)] mt-2">Assets Managed</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="flex flex-col items-center">
+      <div class="relative w-32 h-32 mb-4">
+        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 128 128">
+          <circle cx="64" cy="64" r="54" stroke="#334155" stroke-width="10" fill="none" />
+          <circle cx="64" cy="64" r="54" stroke="var(--gold)" stroke-width="10" fill="none"
+                  stroke-dasharray="339.292"
+                  stroke-dashoffset="339.292"
+                  id="ring3" />
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[var(--gold)]" id="counter3">0</div>
+      </div>
+      <p class="text-[var(--text-secondary)] mt-2">Projects</p>
+    </div>
+
   </div>
+</section>
 
-  <main class="relative">
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center">
-      <div class="absolute inset-0 bg-black/20 dark:bg-black/70 transition-all"></div>
-      <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-50 dark:opacity-20 transition-opacity">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-golden-particles-flow-342.mp4" type="video/mp4">
-      </video>
-      
-      <div class="relative max-w-7xl mx-auto px-4 py-24 z-10">
-        <div class="text-center sr-fade-up">
-          <div class="mb-8">
-            <div class="inline-block p-4 luxury-border rounded-full">
-              <div class="text-[var(--gold)] text-sm tracking-widest">EST. 2024</div>
-            </div>
-          </div>
-          <h1 class="text-6xl md:text-8xl font-bold mb-6 gold-gradient leading-tight">MANEX</h1>
-          <p class="text-xl md:text-2xl font-light text-[var(--text-secondary)] max-w-2xl mx-auto mb-12">
-            The Pinnacle of <span class="text-[var(--gold)]">Digital Wealth Management</span>
-          </p>
-          <a href="#cta-section" class="inline-flex items-center px-12 py-5 gold-button font-semibold 
-            rounded-full transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--gold)]/30
-            focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:ring-offset-2 
-            focus:ring-offset-[var(--bg-primary)] text-lg">
-            Begin Your Journey
-            <heroicon-outline:arrow-right class="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      </div>
-    </section>
+<script>
+function animateValue(id, ringId, start, end, duration) {
+  let current = start;
+  const range = end - start;
+  const increment = range / (duration / 30);
+  const ring = document.getElementById(ringId);
+  const counter = document.getElementById(id);
+  const totalLength = 339.292;
 
-    <!-- Features -->
-    <section class="relative py-24" style="background-color: var(--bg-secondary)">
-      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 py-24">
-        <div class="group relative p-8 backdrop-blur-sm luxury-border sr-fade-up hover:border-[var(--gold)]/40 transition-all duration-500">
-          <div class="text-[var(--gold)] text-5xl mb-6">Ⅰ</div>
-          <h3 class="text-2xl font-semibold mb-4">Exclusive Asset Portfolio</h3>
-          <p class="text-[var(--text-secondary)] leading-relaxed">Curated selection of premium digital assets with institutional-grade security protocols</p>
-        </div>
-        <div class="group relative p-8 backdrop-blur-sm luxury-border sr-fade-up hover:border-[var(--gold)]/40 transition-all duration-500">
-          <div class="text-[var(--gold)] text-5xl mb-6">Ⅱ</div>
-          <h3 class="text-2xl font-semibold mb-4">Concierge Service</h3>
-          <p class="text-[var(--text-secondary)] leading-relaxed">24/7 personalized support from our team of financial experts</p>
-        </div>
-        <div class="group relative p-8 backdrop-blur-sm luxury-border sr-fade-up hover:border-[var(--gold)]/40 transition-all duration-500">
-          <div class="text-[var(--gold)] text-5xl mb-6">Ⅲ</div>
-          <h3 class="text-2xl font-semibold mb-4">Ethical Excellence</h3>
-          <p class="text-[var(--text-secondary)] leading-relaxed">Shariah-compliant investment opportunities with transparent auditing</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio Showcase -->
-    <section class="relative py-24" style="background-color: var(--bg-primary)">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row gap-8 items-center mb-20">
-          <div class="md:w-1/2 sr-left">
-            <div class="text-[var(--gold)] text-lg mb-4">Curated Excellence</div>
-            <h2 class="text-4xl font-bold mb-6">The MANEX <br>Portfolio Advantage</h2>
-            <p class="text-[var(--text-secondary)] mb-8 leading-relaxed">Experience sophisticated wealth management through our exclusive selection of premium assets</p>
-            <a href="#cta-section" class="inline-flex items-center text-[var(--gold)] hover:text-[var(--gold)]/80 transition-all">
-              Explore Assets
-              <heroicon-outline:arrow-right class="w-5 h-5 ml-2" />
-            </a>
-          </div>
-          <div class="md:w-1/2 relative group sr-right">
-            <div class="absolute inset-0 bg-[var(--gold)]/10 transform rotate-3 scale-105"></div>
-            <img src="https://images.unsplash.com/photo-1627907228175-2bfab357a723?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80" 
-                 alt="Asset Portfolio"
-                 class="relative z-10 w-full h-[500px] object-cover luxury-border">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="cta-section" class="relative py-32" style="background-color: var(--bg-secondary)">
-      <div class="max-w-4xl mx-auto text-center px-4 sr-fade-up">
-        <div class="text-[var(--gold)] text-lg mb-4">Exclusive Membership</div>
-        <h2 class="text-5xl font-bold mb-6">Elevate Your Financial Horizon</h2>
-        <p class="text-xl text-[var(--text-secondary)] mb-12 max-w-2xl mx-auto">Join our curated community of sophisticated investors</p>
-        <div class="flex justify-center gap-6">
-          <a href="#" class="px-12 py-5 gold-button font-semibold 
-            rounded-full transition-all transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--gold)]/30">
-            Apply for Membership
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="relative border-t" style="border-color: rgba(212, 175, 55, 0.1); background-color: var(--bg-primary)">
-      <div class="max-w-7xl mx-auto py-20 px-4">
-        <div class="grid md:grid-cols-4 gap-8">
-          <div class="sr-fade-up">
-            <div class="text-2xl font-bold text-[var(--gold)] mb-6">MANEX</div>
-            <p class="text-[var(--text-secondary)] text-sm">The Standard of Excellence in Digital Wealth Management</p>
-          </div>
-          <div class="sr-fade-up">
-            <h4 class="text-[var(--gold)] mb-4">Navigation</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Portfolio</a></li>
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">About</a></li>
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Insights</a></li>
-            </ul>
-          </div>
-          <div class="sr-fade-up">
-            <h4 class="text-[var(--gold)] mb-4">Services</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Asset Management</a></li>
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Advisory</a></li>
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Institutional</a></li>
-            </ul>
-          </div>
-          <div class="sr-fade-up">
-            <h4 class="text-[var(--gold)] mb-4">Connect</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Contact</a></li>
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Careers</a></li>
-              <li><a href="#" class="text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t mt-12 pt-8 text-center text-[var(--text-secondary)] text-sm" style="border-color: rgba(212, 175, 55, 0.1)">
-          © 2024 MANEX. All rights reserved.<br>
-          A subsidiary of Anas Nidir Holdings
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- Theme Toggle Script -->
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const htmlElement = document.documentElement;
-
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    htmlElement.setAttribute('data-theme', savedTheme);
-
-    if (savedTheme === 'dark') {
-      htmlElement.classList.add('dark');
-    } else {
-      htmlElement.classList.remove('dark');
+  function update() {
+    current += increment;
+    if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+      current = end;
+      clearInterval(timer);
     }
+    counter.textContent = Math.floor(current);
+    const progress = (current / end) * totalLength;
+    ring.style.strokeDashoffset = totalLength - progress;
+  }
 
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = htmlElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      htmlElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      htmlElement.classList.toggle('dark');
-    });
+  const timer = setInterval(update, 30);
+}
 
-    // Scroll Reveal Settings
-    ScrollReveal().reveal('.sr-fade-up', {
-      distance: '50px',
-      origin: 'bottom',
-      opacity: 0,
-      duration: 1000,
-      delay: 100,
-      easing: 'ease-out',
-      reset: false
-    });
-
-    ScrollReveal().reveal('.sr-left', {
-      distance: '50px',
-      origin: 'left',
-      opacity: 0,
-      duration: 1000,
-      delay: 200,
-      easing: 'ease-out',
-      reset: false
-    });
-
-    ScrollReveal().reveal('.sr-right', {
-      distance: '50px',
-      origin: 'right',
-      opacity: 0,
-      duration: 1000,
-      delay: 200,
-      easing: 'ease-out',
-      reset: false
-    });
-  </script>
+window.addEventListener("DOMContentLoaded", () => {
+  animateValue("counter1", "ring1", 0, 120, 1500);
+  animateValue("counter2", "ring2", 0, 245, 1500);
+  animateValue("counter3", "ring3", 0, 87, 1500);
+});
+</script>
 
 </body>
-    </html>
+</html>
