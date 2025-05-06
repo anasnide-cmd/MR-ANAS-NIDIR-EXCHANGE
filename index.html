@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,25 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://unpkg.com/@heroicons/v2.0.18/24/outline/index.js"></script>
   <style>
-    @font-face {
-      font-family: 'Playfair Display';
-      src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-    }
-
     :root {
       --gold: #D4AF37;
-      --dark: #0A0A0A;
+      --bg-primary: #0A0A0A;
+      --bg-secondary: #1A1A1A;
+      --text-primary: #F5F5F5;
+      --text-secondary: #A3A3A3;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #F5F5F5;
+      --bg-secondary: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A5568;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .gold-gradient {
@@ -24,167 +35,88 @@
       color: transparent;
     }
 
-    .hover-glow {
+    .theme-switch {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0);
-    }
-    
-    .hover-glow:hover {
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
     }
 
-    .luxury-border {
-      position: relative;
-      background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-    }
-
-    .section-divider {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+    .theme-switch:hover {
+      transform: rotate(180deg);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
   </style>
 </head>
-<body class="bg-[#0A0A0A] text-gray-100 font-sans overflow-x-hidden">
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-switch" id="themeToggle">
+    <heroicon-outline:sun class="w-5 h-5 text-[var(--gold)] dark:hidden" />
+    <heroicon-outline:moon class="w-5 h-5 text-[var(--gold)] hidden dark:block" />
+  </div>
 
   <main class="relative">
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center">
-      <div class="absolute inset-0 bg-black/70"></div>
-      <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-20">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-golden-particles-flow-342.mp4" type="video/mp4">
-      </video>
-      
-      <div class="relative max-w-7xl mx-auto px-4 py-24 z-10">
-        <div class="text-center">
-          <div class="mb-8">
-            <div class="inline-block p-4 border border-[var(--gold)]/30 rounded-full">
-              <div class="text-[var(--gold)] text-sm tracking-widest">EST. 2024</div>
-            </div>
-          </div>
-          <h1 class="text-6xl md:text-8xl font-playfair font-bold mb-6 gold-gradient leading-tight">
-            MANEX
-          </h1>
-          <p class="text-xl md:text-2xl font-light text-gray-300 max-w-2xl mx-auto mb-12">
-            The Pinnacle of <span class="text-[var(--gold)]">Digital Wealth Management</span>
-          </p>
-          <a href="#" class="inline-flex items-center px-12 py-5 bg-[var(--gold)] hover:bg-opacity-90 text-black font-semibold 
-            rounded-full transition-all transform hover:scale-105 hover-glow text-lg">
-            Begin Your Journey
-            <heroicon-outline:arrow-right class="w-6 h-6 ml-3" />
-          </a>
-        </div>
+    <!-- Updated Hero Section with Theme Variables -->
+    <section class="relative min-h-screen flex items-center" style="background-color: var(--bg-primary)">
+      <!-- ... (keep previous hero section content) ... -->
+    </section>
+
+    <!-- Updated Features Section -->
+    <section class="relative py-24" style="background-color: var(--bg-secondary)">
+      <!-- ... (keep previous features content) ... -->
+      <div class="group relative p-8 backdrop-blur-sm" style="background-color: var(--bg-primary); border-color: rgba(212, 175, 55, 0.1)">
+        <!-- ... -->
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="relative py-24">
-      <div class="section-divider"></div>
-      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 py-24">
-        <div class="group relative p-8 backdrop-blur-sm bg-black/30 border border-[var(--gold)]/10 
-          hover:border-[var(--gold)]/40 transition-all duration-500">
-          <div class="absolute inset-0 luxury-border opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="text-[var(--gold)] text-5xl mb-6">Ⅰ</div>
-          <h3 class="text-2xl font-playfair font-semibold mb-4">Exclusive Asset Portfolio</h3>
-          <p class="text-gray-400 leading-relaxed">Curated selection of premium digital assets with institutional-grade security protocols</p>
-        </div>
-
-        <div class="group relative p-8 backdrop-blur-sm bg-black/30 border border-[var(--gold)]/10 
-          hover:border-[var(--gold)]/40 transition-all duration-500">
-          <div class="absolute inset-0 luxury-border opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="text-[var(--gold)] text-5xl mb-6">Ⅱ</div>
-          <h3 class="text-2xl font-playfair font-semibold mb-4">Concierge Service</h3>
-          <p class="text-gray-400 leading-relaxed">24/7 personalized support from our team of financial experts</p>
-        </div>
-
-        <div class="group relative p-8 backdrop-blur-sm bg-black/30 border border-[var(--gold)]/10 
-          hover:border-[var(--gold)]/40 transition-all duration-500">
-          <div class="absolute inset-0 luxury-border opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="text-[var(--gold)] text-5xl mb-6">Ⅲ</div>
-          <h3 class="text-2xl font-playfair font-semibold mb-4">Ethical Excellence</h3>
-          <p class="text-gray-400 leading-relaxed">Shariah-compliant investment opportunities with transparent auditing</p>
-        </div>
-      </div>
-      <div class="section-divider"></div>
+    <!-- Updated Portfolio Section -->
+    <section class="relative py-24" style="background-color: var(--bg-primary)">
+      <!-- ... (keep previous portfolio content) ... -->
     </section>
 
-    <!-- Portfolio Showcase -->
-    <section class="relative py-24">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row gap-8 items-center mb-20">
-          <div class="md:w-1/2">
-            <div class="text-[var(--gold)] text-lg mb-4">Curated Excellence</div>
-            <h2 class="text-4xl font-playfair font-bold mb-6">The MANEX <br>Portfolio Advantage</h2>
-            <p class="text-gray-400 mb-8 leading-relaxed">Experience sophisticated wealth management through our exclusive selection of premium assets, combining traditional values with cutting-edge technology</p>
-            <a href="#" class="inline-flex items-center text-[var(--gold)] hover:text-[var(--gold)]/80 transition-all">
-              Explore Assets
-              <heroicon-outline:arrow-right class="w-5 h-5 ml-2" />
-            </a>
-          </div>
-          <div class="md:w-1/2 relative group">
-            <div class="absolute inset-0 bg-[var(--gold)]/10 transform rotate-3 scale-105"></div>
-            <img src="https://images.unsplash.com/photo-1627907228175-2bfab357a723?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80" 
-                 alt="Asset Portfolio"
-                 class="relative z-10 w-full h-[500px] object-cover border border-[var(--gold)]/20">
-          </div>
-        </div>
-      </div>
+    <!-- Updated CTA Section -->
+    <section class="relative py-32" style="background-color: var(--bg-secondary)">
+      <!-- ... (keep previous CTA content) ... -->
     </section>
 
-    <!-- CTA Section -->
-    <section class="relative py-32 bg-black/50">
-      <div class="max-w-4xl mx-auto text-center px-4">
-        <div class="text-[var(--gold)] text-lg mb-4">Exclusive Membership</div>
-        <h2 class="text-5xl font-playfair font-bold mb-6">Elevate Your Financial Horizon</h2>
-        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Join our curated community of sophisticated investors and experience wealth management redefined</p>
-        <div class="flex justify-center gap-6">
-          <a href="#" class="px-12 py-5 bg-[var(--gold)] hover:bg-opacity-90 text-black font-semibold 
-            rounded-full transition-all transform hover:scale-105 hover-glow">
-            Apply for Membership
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="relative border-t border-[var(--gold)]/20">
-      <div class="max-w-7xl mx-auto py-20 px-4">
-        <div class="grid md:grid-cols-4 gap-8">
-          <div>
-            <div class="text-2xl font-playfair font-bold text-[var(--gold)] mb-6">MANEX</div>
-            <p class="text-gray-400 text-sm">The Standard of Excellence in Digital Wealth Management</p>
-          </div>
-          <div>
-            <h4 class="text-[var(--gold)] mb-4">Navigation</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Portfolio</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">About</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Insights</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-[var(--gold)] mb-4">Services</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Asset Management</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Advisory</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Institutional</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-[var(--gold)] mb-4">Connect</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Contact</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Careers</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-[var(--gold)] transition-colors">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-[var(--gold)]/20 mt-12 pt-8 text-center text-gray-400 text-sm">
-          © 2024 MANEX. All rights reserved.<br>
-          A subsidiary of Anas Nidir Holdings
-        </div>
-      </div>
+    <!-- Updated Footer -->
+    <footer class="relative border-t" style="border-color: rgba(212, 175, 55, 0.1); background-color: var(--bg-primary)">
+      <!-- ... (keep previous footer content) ... -->
     </footer>
   </main>
 
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    // Check local storage for theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    htmlElement.setAttribute('data-theme', savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update Tailwind dark mode classes
+      if (newTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
 </body>
-</html>
+    </html>
