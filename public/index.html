@@ -1,131 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="MANEX | Premium Digital Exchange" />
-    <title>MANEX | Premium Digital Exchange</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <style>
-      :root {
-        --gold: #d4af37;
-        --bg-primary: #0a0a0a;
-        --bg-secondary: #1a1a1a;
-        --text-primary: #f5f5f5;
-        --text-secondary: #a3a3a3;
-        --button-text: #0a0a0a;
-      }
-
-      [data-theme="light"] {
-        --gold: #b8860b;
-        --bg-primary: #f5f5f5;
-        --bg-secondary: #ffffff;
-        --text-primary: #1a1a1a;
-        --text-secondary: #4a5568;
-        --button-text: #ffffff;
-      }
-
-      body {
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      .gold-gradient {
-        background: linear-gradient(45deg, var(--gold), #c5a350, #b8860b);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .theme-switch {
-        position: fixed;
-        top: 2rem;
-        right: 2rem;
-        z-index: 1000;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background: var(--bg-secondary);
-        border: 1px solid var(--gold);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-      }
-
-      .theme-switch:hover {
-        transform: rotate(180deg);
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-      }
-
-      .luxury-border {
-        border: 1px solid rgba(212, 175, 55, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .gold-button {
-        background-color: var(--gold);
-        color: var(--button-text);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    <title>MANEX</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-
-    <!-- Optional JavaScript (only for landing pages with scroll effects) -->
-    <script>
-      // ScrollReveal with custom directions
-      ScrollReveal().reveal('.sr-top', {
-        origin: 'top',
-        distance: '40px',
-        duration: 1000,
-        scale: 0.95,
-        opacity: 0,
-        easing: 'ease-in-out',
-        reset: false
-      });
-
-      ScrollReveal().reveal('.sr-bottom', {
-        origin: 'bottom',
-        distance: '40px',
-        duration: 1000,
-        scale: 0.95,
-        opacity: 0,
-        easing: 'ease-in-out',
-        reset: false
-      });
-
-      ScrollReveal().reveal('.sr-left', {
-        origin: 'left',
-        distance: '60px',
-        duration: 1000,
-        opacity: 0,
-        easing: 'ease-in-out',
-        reset: false
-      });
-
-      ScrollReveal().reveal('.sr-right', {
-        origin: 'right',
-        distance: '60px',
-        duration: 1000,
-        opacity: 0,
-        easing: 'ease-in-out',
-        reset: false
-      });
-    </script>
   </body>
 </html>
