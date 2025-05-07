@@ -1,28 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | MANEX</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile | Banking Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/@heroicons/vue@2.0.18/24/outline/index.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --bg-primary: #0A0A0A;
+      --bg-secondary: #1A1A1A;
+      --text-primary: #F5F5F5;
+      --text-secondary: #A3A3A3;
+      --button-text: #0A0A0A;
+    }
+
+    [data-theme="light"] {
+      --gold: #B8860B;
+      --bg-primary: #F5F5F5;
+      --bg-secondary: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A5568;
+      --button-text: #FFFFFF;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .gold-gradient {
+      background: linear-gradient(45deg, var(--gold), #C5A350, #B8860B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .theme-switch {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .theme-switch:hover {
+      transform: rotate(180deg);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .gold-button {
+      background-color: var(--gold);
+      color: var(--button-text);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body>
 
-  <!-- Navigation -->
-  <nav class="flex justify-between p-4 bg-gray-800">
-    <a href="index.html" class="text-xl font-bold text-yellow-500">MANEX</a>
-    <div>
-      <a href="user.html" class="px-4 py-2 text-yellow-500 hover:bg-yellow-600 rounded">User Page</a>
-    </div>
-  </nav>
-
-  <!-- Main content -->
-  <div class="container mx-auto text-center py-20">
-    <h1 class="text-5xl font-bold text-yellow-500">Welcome to MANEX</h1>
-    <p class="mt-4 text-lg">Explore the world of premium digital wealth management</p>
+  <!-- Theme Toggle -->
+  <div class="theme-switch" id="themeToggle">
+    <heroicon-outline:sun class="w-5 h-5 text-[var(--gold)] dark:hidden" />
+    <heroicon-outline:moon class="w-5 h-5 text-[var(--gold)] hidden dark:block" />
   </div>
 
-  <script src="js/scripts.js"></script>
+  <!-- User Profile Banking Page -->
+  <main class="relative">
+
+    <!-- Profile Overview Section -->
+    <section class="py-24 bg-[var(--bg-secondary)]">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-[var(--gold)]">Welcome, Mr Anas Nidir</h1>
+          <p class="text-lg text-[var(--text-secondary)] mt-2">Your account overview and transaction details</p>
+        </div>
+
+        <!-- Account Info -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4">Account Balance</h3>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[var(--text-secondary)]">Current Balance</span>
+              <span class="text-2xl text-[var(--gold)]">$900,000,000,000.00</span>
+            </div>
+            <button class="w-full px-4 py-2 gold-button rounded-lg">Add Funds</button>
+          </div>
+
+          <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4">Recent Transactions</h3>
+            <ul class="space-y-4">
+              <li class="flex justify-between">
+                <span class="text-[var(--text-secondary)]">Payment to XYZ Store</span>
+                <span class="text-[var(--gold)]">- $250.00</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-[var(--text-secondary)]">Deposit from ABC Corp</span>
+                <span class="text-[var(--gold)]">+ $1,000.00</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-[var(--text-secondary)]">Payment to John Smith</span>
+                <span class="text-[var(--gold)]">- $120.00</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4">Account Settings</h3>
+            <button class="w-full px-4 py-2 gold-button rounded-lg mb-4">Change Password</button>
+            <button class="w-full px-4 py-2 gold-button rounded-lg">Update Personal Info</button>
+          </div>
+        </div>
+
+        <!-- Exit Button to Navigate to index.html -->
+        <div class="text-center mt-8">
+          <a href="index.html" class="inline-flex items-center px-8 py-4 gold-button font-semibold rounded-full text-lg">
+            Exit Profile
+            <heroicon-outline:arrow-left class="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--bg-primary)] text-center py-12 text-[var(--text-secondary)]">
+      <p>&copy; 2024 MANEX. All Rights Reserved.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
 </body>
 </html>
