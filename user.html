@@ -16,6 +16,14 @@
       --button-text: #0A0A0A;
     }
 
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f3f3f3;
+      --text-primary: #0A0A0A;
+      --text-secondary: #555;
+      --button-text: #ffffff;
+    }
+
     body {
       background-color: var(--bg-primary);
       color: var(--text-primary);
@@ -34,6 +42,14 @@
   </style>
 </head>
 <body>
+
+  <!-- Toggle Theme Button -->
+  <div class="fixed top-4 right-4 z-50">
+    <button id="themeToggle" class="flex items-center gap-2 px-4 py-2 gold-button rounded-full text-sm font-semibold shadow-md transition">
+      <span id="themeIcon"></span>
+      <span id="themeText"></span>
+    </button>
+  </div>
 
   <!-- Profile Banking Page -->
   <main class="relative">
@@ -109,8 +125,38 @@
       window.requestAnimationFrame(step);
     }
 
-    // Animate $900,000,000,000 over 3 seconds
     animateBalance("balance", 0, 900000000000, 3000);
+  </script>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const html = document.documentElement;
+    const themeIcon = document.getElementById("themeIcon");
+    const themeText = document.getElementById("themeText");
+
+    const setIcon = (theme) => {
+      themeIcon.innerHTML = theme === "dark"
+        ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+             <path d="M17.293 13.293A8 8 0 116.707 2.707a8.001 8.001 0 0010.586 10.586z" />
+           </svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+             <path d="M10 2a1 1 0 011 1v1a1 1 0 01-2 0V3a1 1 0 011-1zm4.22 2.22a1 1 0 011.415 0l.708.707a1 1 0 01-1.414 1.415l-.709-.708a1 1 0 010-1.414zM18 9a1 1 0 100 2h-1a1 1 0 100-2h1zm-2.22 6.78a1 1 0 010-1.415l.709-.708a1 1 0 011.414 1.414l-.707.709a1 1 0 01-1.415 0zM10 18a1 1 0 011-1v-1a1 1 0 10-2 0v1a1 1 0 011 1zm-6.78-2.22a1 1 0 001.415 0l.708-.709a1 1 0 00-1.414-1.414l-.709.708a1 1 0 000 1.415zM2 11a1 1 0 100-2H1a1 1 0 100 2h1zm2.22-6.78a1 1 0 000 1.415l.709.708a1 1 0 001.414-1.414l-.708-.709a1 1 0 00-1.415 0z" />
+           </svg>`;
+      themeText.textContent = theme === "dark" ? "Dark Mode" : "Light Mode";
+    };
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    html.setAttribute("data-theme", savedTheme);
+    setIcon(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      setIcon(next);
+    });
   </script>
 
 </body>
