@@ -103,14 +103,13 @@
   <main class="relative">
     <!-- Hero Section with Video Background -->
     <section class="relative min-h-screen flex items-center">
-      <!-- Video background -->
       <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-80 z-0">
         <source src="5bdb6c0ffa8ac8b5b122c9831bd35b0f.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
       <div class="relative max-w-7xl mx-auto px-4 py-24 z-10">
-        <div class="text-center sr-fade-up">
+        <div class="text-center" id="hero">
           <div class="mb-8">
             <div class="inline-block p-4 luxury-border rounded-full">
               <div class="text-[var(--gold)] text-sm tracking-widest">EST. 2024</div>
@@ -135,27 +134,54 @@
 
     <!-- CTA Section -->
     <section id="cta-section" class="py-24 bg-[var(--bg-secondary)] text-center">
-      <h2 class="text-4xl font-semibold mb-4">Ready to Explore?</h2>
-      <p class="text-xl text-[var(--text-secondary)] mb-6">
-        Join us today and experience the future of digital wealth management.
-      </p>
-      <a href="#" class="inline-flex items-center px-8 py-4 gold-button font-semibold rounded-full text-lg">
-        Get Started
-      </a>
+      <div id="cta">
+        <h2 class="text-4xl font-semibold mb-4">Ready to Explore?</h2>
+        <p class="text-xl text-[var(--text-secondary)] mb-6">
+          Join us today and experience the future of digital wealth management.
+        </p>
+        <a href="#" class="inline-flex items-center px-8 py-4 gold-button font-semibold rounded-full text-lg">
+          Get Started
+        </a>
+      </div>
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-[var(--bg-primary)] text-center py-12 text-[var(--text-secondary)]">
+    <footer id="footer" class="bg-[var(--bg-primary)] text-center py-12 text-[var(--text-secondary)]">
       <p>&copy; 2024 MANEX. All Rights Reserved.</p>
     </footer>
   </main>
 
   <script>
-    // Theme switch logic
+    // Theme switch
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // ScrollReveal animations
+    ScrollReveal().reveal('#hero', {
+      delay: 200,
+      duration: 1200,
+      origin: 'bottom',
+      distance: '50px',
+      easing: 'ease-out'
+    });
+
+    ScrollReveal().reveal('#cta', {
+      delay: 300,
+      duration: 1000,
+      origin: 'bottom',
+      distance: '40px',
+      easing: 'ease-in-out'
+    });
+
+    ScrollReveal().reveal('#footer', {
+      delay: 500,
+      duration: 800,
+      opacity: 0,
+      scale: 0.9,
+      easing: 'ease'
     });
   </script>
 
