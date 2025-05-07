@@ -1,13 +1,25 @@
-
+// Import Firebase SDK
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
+// Ambil data dari environment variables
 const firebaseConfig = {
-  apiKey: "AlzaSyC9G6ZGVtmo6zR8iZZZ5IldM5xOkuxLrG0",
-  authDomain: "manex-eb367.firebaseapp.com",
-  projectId: "manex-eb367",
-  storageBucket: "manex-eb367.appspot.com",
-  messagingSenderId: "340852859801",
-  appId: "1:340852859801:web:84bdd3da5a93d9fd432908"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-export const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Export Firebase services
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+
+export default app;
