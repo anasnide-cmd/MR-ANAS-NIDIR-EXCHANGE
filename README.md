@@ -1,23 +1,38 @@
 # MANEX – Premium Digital Exchange
 
-**MANEX** is a modern digital platform built with React and Tailwind CSS, designed to deliver a luxurious and responsive user experience for the future of digital wealth management.
+**MANEX** is a premium digital platform built with **Vite**, **React**, and **Tailwind CSS**, tailored for a modern, luxurious user experience in digital wealth management.
 
 ## Features
 
-- React.js SPA (Single Page Application)
-- Firebase Authentication (Login/Register)
-- Light/Dark theme toggle
-- ScrollReveal animations
-- Responsive luxury UI with Tailwind CSS
-- Component-based architecture
+- Vite-powered React.js Single Page Application (SPA)
+- Multi-page routing using React Router DOM
+- Firebase Authentication – Sign in with Google / Email
+- Dark & Light Theme Toggle
+- ScrollReveal animations for smooth transitions
+- Reusable Components – Clean and scalable architecture
+- Protected Routes – Only allow logged-in users to access certain pages
+- Dashboard & Admin Panels (optional)
+- Custom Hooks & Utility Functions
+- Fully responsive design with luxury aesthetics using Tailwind CSS
 
 ## Tech Stack
 
-- React
-- Tailwind CSS
-- Firebase Authentication
-- React Router DOM
-- ScrollReveal.js
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Firebase Authentication](https://firebase.google.com/docs/auth)
+- [React Router DOM](https://reactrouter.com/)
+- [ScrollReveal.js](https://scrollrevealjs.org/)
+
+## Pages
+
+- `/` – Home Page
+- `/about` – About MANEX
+- `/login` – User Login
+- `/register` – Create Account
+- `/dashboard` – User Dashboard *(Protected)*
+- `/admin` – Admin Panel *(Optional / Protected)*
+- `/profile` – User Profile *(Protected)*
 
 ## Getting Started
 
