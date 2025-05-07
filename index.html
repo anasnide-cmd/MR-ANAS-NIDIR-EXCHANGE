@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MANEX | Premium Digital Exchange</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/@heroicons/v2.0.18/24/outline/index.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <style>
     :root {
@@ -40,10 +39,6 @@
     }
 
     .theme-switch {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
-      z-index: 1000;
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
@@ -79,10 +74,30 @@
 </head>
 <body>
 
-  <!-- Theme Toggle -->
-  <div class="theme-switch" id="themeToggle">
-    <heroicon-outline:sun class="w-5 h-5 text-[var(--gold)] dark:hidden" />
-    <heroicon-outline:moon class="w-5 h-5 text-[var(--gold)] hidden dark:block" />
+  <!-- Profile & Theme Toggle -->
+  <div class="fixed top-8 right-8 flex space-x-4 z-50">
+    <!-- Profile Button -->
+    <a href="user.html" class="flex items-center px-4 py-2 gold-button rounded-full text-sm font-medium shadow-md hover:scale-105 transition-transform">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5.121 17.804A8.966 8.966 0 0112 15c2.073 0 3.978.707 5.379 1.888M15 11a3 3 0 10-6 0 3 3 0 006 0z" />
+      </svg>
+      Profile
+    </a>
+
+    <!-- Theme Toggle -->
+    <div class="theme-switch" id="themeToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--gold)] dark:hidden" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m8.66-9H21m-18 0H2.34m15.364 6.364l-.707-.707m-11.314 0l-.707.707m0-11.314l.707.707m11.314 0l.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--gold)] hidden dark:block" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+      </svg>
+    </div>
   </div>
 
   <main class="relative">
@@ -110,7 +125,9 @@
             focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:ring-offset-2 
             focus:ring-offset-[var(--bg-primary)] text-lg">
             Begin Your Journey
-            <heroicon-outline:arrow-right class="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -131,17 +148,16 @@
     <footer class="bg-[var(--bg-primary)] text-center py-12 text-[var(--text-secondary)]">
       <p>&copy; 2024 MANEX. All Rights Reserved.</p>
     </footer>
-
   </main>
 
   <script>
     // Theme switch logic
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
-      document.documentElement.setAttribute('data-theme', 
-        document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
     });
   </script>
 
 </body>
-    </html>
+</html>
