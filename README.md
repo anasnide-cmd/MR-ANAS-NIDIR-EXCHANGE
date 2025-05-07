@@ -1,28 +1,27 @@
-# MR ANAS NIDIR EXCHANGE
+# MANEX – Premium Digital Exchange
 
-**Empowering the Next Financial Revolution**
-
-MR ANAS NIDIR EXCHANGE is a modern and responsive landing page for a next-generation FinTech platform. Built with simplicity using HTML and TailwindCSS, this site is ready to be deployed via GitHub Pages.
+**MANEX** is a modern digital platform built with React and Tailwind CSS, designed to deliver a luxurious and responsive user experience for the future of digital wealth management.
 
 ## Features
 
-- Clean, mobile-friendly design
-- TailwindCSS-powered layout
-- Sections: Hero, About Us, Features, Call-to-Action, and Footer
-- Optimized for fast loading and ease of customization
+- React.js SPA (Single Page Application)
+- Firebase Authentication (Login/Register)
+- Light/Dark theme toggle
+- ScrollReveal animations
+- Responsive luxury UI with Tailwind CSS
+- Component-based architecture
 
-## How to Use
+## Tech Stack
 
-1. Clone this repository or upload the files manually
-2. Open `index.html` in a browser to preview
-3. Deploy to GitHub Pages:
-   - Go to your repository's **Settings > Pages**
-   - Select branch `main` and folder `/ (root)`
-   - Click **Save**
+- React
+- Tailwind CSS
+- Firebase Authentication
+- React Router DOM
+- ScrollReveal.js
 
-Your website will be live at:  
-`https://<your-username>.github.io/<repository-name>/`
+## Getting Started
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/manex.git
+cd manex
