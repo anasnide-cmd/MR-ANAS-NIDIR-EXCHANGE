@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+// src/components/Navbar.jsx
+import React from "react";
 import { GoogleAuthProvider, signInWithPopup, signOut, getAuth } from "firebase/auth";
 import { app } from "../firebase/config";
+import { useAuth } from "../context/AuthContext";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
 
   const handleSignIn = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
-      setUser(result.user);
+      await signInWithPopup(auth, provider);
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +21,6 @@ const Navbar = () => {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-      setUser(null);
     } catch (error) {
       console.error(error);
     }
