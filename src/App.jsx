@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
-function App() {
+const App = () => {
   return (
     <div>
-      <h1>Selamat datang ke Manex!</h1>
+      <Navbar />
+      <Home />
     </div>
   );
-}
+};
 
 export default App;
