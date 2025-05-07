@@ -35,9 +35,27 @@
       color: var(--button-text);
       transition: all 0.3s;
     }
+
+    @media (max-width: 767px) {
+      aside {
+        display: none;
+      }
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body class="flex h-screen overflow-hidden">
+
+  <!-- Hamburger Menu -->
+  <button class="md:hidden absolute top-4 left-4 z-50" onclick="toggleSidebar()">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--gold)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
 
   <!-- Sidebar -->
   <aside class="w-64 bg-[var(--bg-secondary)] text-[var(--text-primary)] flex flex-col p-6 space-y-6 hidden md:flex">
@@ -61,14 +79,14 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Balance Card -->
-        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow">
+        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow hover-scale">
           <h3 class="text-xl font-semibold mb-2">Account Balance</h3>
           <div class="text-3xl font-bold text-[var(--gold)]" id="balance">$0.00</div>
           <button class="mt-4 w-full py-2 gold-button rounded-lg">Add Funds</button>
         </div>
 
         <!-- Transactions Card -->
-        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow">
+        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow hover-scale">
           <h3 class="text-xl font-semibold mb-4">Recent Transactions</h3>
           <ul class="space-y-2 text-[var(--text-secondary)]">
             <li class="flex justify-between">Payment to XYZ <span class="text-red-400">- $250.00</span></li>
@@ -78,9 +96,30 @@
         </div>
 
         <!-- Chart -->
-        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow">
+        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow hover-scale">
           <h3 class="text-xl font-semibold mb-4">Spending Chart</h3>
           <canvas id="chart" height="200"></canvas>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <!-- Transfer Card -->
+        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow hover-scale">
+          <h3 class="text-xl font-semibold mb-4">Transfer</h3>
+          <button class="w-full py-2 gold-button rounded-lg">Make a Transfer</button>
+        </div>
+
+        <!-- Pay Bills Card -->
+        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow hover-scale">
+          <h3 class="text-xl font-semibold mb-4">Pay Bills</h3>
+          <button class="w-full py-2 gold-button rounded-lg">Pay Your Bills</button>
+        </div>
+
+        <!-- Request Statement Card -->
+        <div class="bg-[var(--bg-primary)] p-6 rounded-xl shadow hover-scale">
+          <h3 class="text-xl font-semibold mb-4">Request Statement</h3>
+          <button class="w-full py-2 gold-button rounded-lg">Download Statement</button>
         </div>
       </div>
 
@@ -115,10 +154,16 @@
 
     animateBalance("balance", 0, 900000000000, 3000);
 
-    // Theme toggle
+    // Toggle theme
     function toggleTheme() {
       const html = document.documentElement;
       html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    }
+
+    // Toggle sidebar for mobile
+    function toggleSidebar() {
+      const sidebar = document.querySelector('aside');
+      sidebar.classList.toggle('hidden');
     }
 
     // Chart.js Line Chart
