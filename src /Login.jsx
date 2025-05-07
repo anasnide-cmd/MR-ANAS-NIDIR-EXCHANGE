@@ -9,11 +9,11 @@ function Login() {
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log("User info:", result.user);
-      navigate('/user');  // Redirect ke halaman User.jsx selepas login berjaya
+      console.log('User info:', result.user);
+      navigate('/user'); // Navigate ke halaman user
     } catch (error) {
       console.error(error);
-      alert("Login failed");
+      alert('Login failed');
     }
   };
 
