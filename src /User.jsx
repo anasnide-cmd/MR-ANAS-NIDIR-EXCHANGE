@@ -1,5 +1,5 @@
 // src/User.jsx
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { auth } from './firebase';
 
 function User() {
@@ -19,7 +19,6 @@ function User() {
       <h2>Welcome, {user.displayName}!</h2>
       <img src={user.photoURL} alt="Profile" />
       <p>Email: {user.email}</p>
-      {/* Tambah maklumat lain jika perlu */}
     </div>
   );
 }
