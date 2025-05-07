@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';  // Pastikan App.jsx ada di dalam src
-import './index.css';      // Jika anda menggunakan CSS
+import ReactDOM from 'react-dom/client'; // Guna `react-dom/client` untuk React 18
+import App from './App';
+import './index.css';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root')); // Guna createRoot
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
